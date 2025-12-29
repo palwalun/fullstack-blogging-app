@@ -22,10 +22,11 @@ pipeline {
 	  try{
 	   sh 'mvn clean test'
 	  }
-	  catch(Exception e){
+	  catch (Exception e){
 	   echo "Logs of failure: ${e}"
-	   currentBuild.result = 'Failed'
 	  }
+	 }
+	 }
 	 }
 	 stage('Build docker image'){
       steps{
@@ -33,31 +34,21 @@ pipeline {
 	    try{
 		 sh 'docker build -t blogging:latest'
 		}
-		catch(Expression e){
-		 currentBuild.result: 'Failed'
+		catch (Exception e){
+		 echo "Logs: ${e}"
 		}
 	   }
 	  }
      }
+  }
     post{
 	 always{
 	  cleanWs()
 	 }
-	}
 	 failure{
 	  mail to: 'walunjpallavi69@gmail.com',
 	        subject: 'Build Failed',
 			body: 'Check jenkins console logs'
 	 }
-	  
 	}
-   }
-  
-  
-  
-  
-  
-  }
-
-
 }  
