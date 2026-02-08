@@ -57,11 +57,12 @@ stages{
 	    sh 'docker push $ACR_LOGIN_SERVER/${IMAGE_NAME}:${TAG}'
 	    }
 	   }
+	   stage('Approval'){
+	    steps{
+		input : Approve the pipeline
+		}
+	   }
 	   stage('Deploy to pord'){
-	    when{
-		 expression{ params.ENV == 'Prod'
-		  }
-		 }
 		steps{
 		 sh '''
 		 kubectl apply -f deployment.yml
@@ -69,12 +70,6 @@ stages{
 		 '''
 		}
 	   }
-
-}
-post{
- failure{
- cleanWs()
- }
 
 }
 
