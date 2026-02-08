@@ -63,7 +63,10 @@ stages{
 		  }
 		 }
 		steps{
-		 sh 'kubectl apply -f deployment.yml'
+		 sh '''
+		 kubectl apply -f deployment.yml
+		 kubectl apply -f ingress.yml
+		 '''
 		}
 	   }
 
