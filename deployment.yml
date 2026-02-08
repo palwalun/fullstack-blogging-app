@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: fullstack-deployment
+ labels:
+  app: fullstack
+spec:
+ replicas: 2
+ selector:
+ matchLabels:
+  app: fullstack
+ template:
+  metadata:
+   name: fullstack-pod
+   labels:
+    app: fullstack
+  spec:
+   containers:
+    - name: fullstack-app
+      image: devopsproject1.azurecr.io/fullstack:latest
+      ports:
+       - containerPort: 8080
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+ name: fullstack-service
+spec:
+ type: ClusterIP
+ ports:
+ - targetPort: 8080
+   port: 80
+selector:
+ app: fullstack
