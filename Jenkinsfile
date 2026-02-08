@@ -59,7 +59,7 @@ stages{
 	   }
 	   stage('Approval'){
 	    steps{
-		input: 'Approve the pipeline', ok: 'Approve'
+		input: ('Approve the pipeline', ok: 'Approve')
 		}
 	   }
 	   stage('Deploy to pord'){
