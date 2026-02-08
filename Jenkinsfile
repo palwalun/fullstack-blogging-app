@@ -11,7 +11,7 @@ stages{
  }
  stage('Build docker image'){
   steps{ 
-  sh 'docker build -t fullstackapp:latest'
+  sh 'docker build -t fullstackapp:latest .'
   }
  }
 
