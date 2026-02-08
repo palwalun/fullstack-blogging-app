@@ -70,7 +70,7 @@ stages{
 }
 post{
  always{
- Cleanws()
+ cleanWs()
  }
 
 }
