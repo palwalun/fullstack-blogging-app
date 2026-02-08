@@ -69,7 +69,7 @@ stages{
 
 }
 post{
- failure{
+ always{
  Cleanws()
  }
 

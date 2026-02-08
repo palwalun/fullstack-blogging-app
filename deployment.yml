@@ -17,7 +17,7 @@ spec:
   spec:
    containers:
     - name: fullstack-app
-      image: devopsproject1.azurecr.io/fullstack:latest
+      image: devopsproject1.azurecr.io/fullstackapp:latest
       ports:
        - containerPort: 8080
 
