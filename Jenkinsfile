@@ -11,7 +11,13 @@ stages{
  }
  stage('Build docker image'){
   steps{ 
+  script{
+  try{
   sh 'docker build -t fullstackapp:latest .'
+  }
+  catch (err){
+  currentBuild.error = 'FAILURE'}
+  }
   }
  }
 
