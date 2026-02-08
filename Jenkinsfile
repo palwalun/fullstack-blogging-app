@@ -57,6 +57,15 @@ stages{
 	    sh 'docker push $ACR_LOGIN_SERVER/${IMAGE_NAME}:${TAG}'
 	    }
 	   }
+	   stage{
+	    when{
+		expression{ params.ENV == 'Prod'
+		 }
+		}
+		steps{
+		 sh 'kubectl apply -f deployment.yml'
+		}
+	   }
 
 }
 post{
