@@ -57,11 +57,6 @@ stages{
 	    sh 'docker push $ACR_LOGIN_SERVER/${IMAGE_NAME}:${TAG}'
 	    }
 	   }
-	   stage('Approval'){
-	    steps{
-		input: ('Approve the pipeline', ok: 'Approve')
-		}
-	   }
 	   stage('Deploy to pord'){
 		steps{
 		 sh '''
