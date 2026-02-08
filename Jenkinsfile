@@ -52,6 +52,11 @@ stages{
          '''
           }
         }
+		stage('Push Image to ACR'){
+	   steps{
+	    sh 'docker push $ACR_LOGIN_SERVER/${IMAGE_NAME}:${TAG}'
+	    }
+	   }
 
 }
 post{
