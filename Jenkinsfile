@@ -16,6 +16,12 @@ stages{
  }
 
 }
+post{
+ failure{
+ Cleanws()
+ }
+
+}
 
 
 
