@@ -1,9 +1,9 @@
 pipeline{
 agent any
 parameters{
-choices{
+choices(
  name='ENV', choice=['Dev','Test','Prod'], Decription='Select Environment'
-}
+)
 }
 stages{
  stage('checkout'){
