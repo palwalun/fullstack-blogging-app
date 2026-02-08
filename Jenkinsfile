@@ -9,6 +9,11 @@ stages{
   sh 'mvn clean package'
   }
  }
+ stage('Build docker image'){
+  steps{ 
+  sh 'docker build -t fullstackapp:latest'
+  }
+ }
 
 }
 
